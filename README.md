@@ -1,4 +1,4 @@
-Tic Tac Toe 🎯
+# Tic Tac Toe 🎯
 This is a classic Tic Tac Toe game built using HTML, CSS, and JavaScript.
 The game features a simple design, real-time status updates, and sound effects for turns, wins, and draws.
 
