@@ -1,0 +1,169 @@
+:root {
+  --bg-page: #ffe3e8;
+  --card-bg: #fff1f5;
+  --cell-red: #ff3e57;
+  --cell-yellow: #ffde59;
+  --icon-bg: rgba(255, 255, 255, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-page);
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 32 29' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFDDE5' d='M23.6 0C21.4 0 19.5 1.5 18.8 3.6 18.1 1.5 16.2 0 14 0 10.7 0 8 2.7 8 6c0 7.5 12 13 12 13s12-5.5 12-13c0-3.3-2.7-6-6.4-6z'/%3E%3C/svg%3E");
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* Card wrapper */
+.card {
+  width: 300px;
+  max-width: 90vmin;
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header icons */
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.icon {
+  width: 32px;
+  height: 32px;
+  background: var(--icon-bg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Status line */
+#status {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+  color: #333; /* default */
+}
+#status.win {
+  color: #28a745;
+}
+#status.lose {
+  color: #ff3e57;
+}
+
+/* Game grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+.cell {
+  background: var(--cell-red);
+  border: none;
+  border-radius: 12px;
+  padding-top: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cell:hover {
+  background: var(--cell-yellow);
+  transform: scale(1.05);
+}
+.cell span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset button */
+#reset-btn {
+  margin: 16px 0;
+  padding: 8px 16px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+#reset-btn:hover {
+  background: gray;
+}
+
+/* Footer icon */
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--icon-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.github-link {
+  display: inline-block;
+  color: black; /* Icon color */
+  transition: color 0.3s;
+}
+
+.github-link:hover {
+  color: gray; /* Hover color (e.g. yellow) */
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .card {
+    width: 90vw;
+  }
+  .icon,
+  .footer-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .github-link svg {
+    width: 28px;
+    height: 28px;
+  }
+}
